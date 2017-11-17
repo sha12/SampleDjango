@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% extends 'Testline_Details/base.html' %}
+{% load staticfiles %}
+
+
+<html>
+{% block title_block %}
+Testline Details
+{% endblock %}
+
+
+{% block body_block %}
+
+
+<style>
+  th,td {
+     padding: 5px; }
+    table,td, th{
+    border: 1px solid #008CBA;
+    border-spacing:0px;
+    border-width:1px
+    }
+    table
+    {
+    border-radius:3px
+    }
+   
+   
+    #h1{
+    position:relative;
+    text-align:center;
+    top:30px;
+    }
+    #content{
+    margin:60px 0px 50px;
+    }
+    
+    #login{
+    /*font-size:20px;
+    margin: 50px 0px 0px 150px; */
+    font-size:20px;
+    position:absolute;
+    top:43px;
+    right:370px;
+    }
+    #signup{
+        /*
+    font-size:20px;
+    margin: 50px 0px 0px 30px; */
+    font-size:20px;
+    position:absolute;
+    top:43px;
+    right:200px;
+    /* margin :0px 0px 0px 50px;  */
+    }
+    
+    #logout{
+    font-size:20px;
+    position: absolute;
+    top:43px;
+    right:300px;
+    /* margin: 0px 0px 0px 200px; */
+    }
+</style>
+
+
+{% if not user.is_authenticated %}
+<br>
+<a class="nav-item nav-link" href="{% url 'login' %}" id="login">Login</a>
+<a class="nav-item nav-link" href="{% url 'register' %}" id="signup">Sign Up</a></div>
+{% else %}
+
+<a class="nav-item nav-link" href="{% url 'logout' %}?next=/Testline_Details/" id="logout">Logout</a>
+{% endif %}
+
+<h1 id="h1">SRAN TESTLINE DETAILS</h1>
+<div id="content">
+<table>
+<thead>
+<tr>
+        <th>SBTS ID</th>
+        <th>Owner</th>
+        <th>Rack</th>
+        <th>Hw Config</th>
+        <th>Radio Modules</th>
+        <th>SBTS Build</th>
+        <th>Cell Info</th>
+        <th>App IP Addr</th>
+        <th>Active Alarms</th>
+        <th>Config</th>
+        <th>Remote IP</th>
+        <th>L2 Switch Ip</th>
+        <th>Ports</th>
+        <th>3 RAT Calls</th>
+        <th>UE Details</th>
+        <th>IMSI Details</th>
+        <th>Issues/Investigations</th>
+        <th>Status and comments</th>
+        <th>Last modified on</th>
+        <th>Last modified by</th>
+
+</tr>
+</thead>
+{% for testline in testline_list %}
+<tbody>
+<tr>
+        <td><a href="{% url 'editdetails' testline.SBTS_ID %}">{{ testline.SBTS_ID }}</a></td>
+        <td>{{ testline.Owner }}</td>
+        <td>{{ testline.Rack }}</td>
+        <td>{{ testline.Hw_config }}</td>
+        <td>{{ testline.Radio_modules }}</td>
+        <td>{{ testline.SBTS_Build }}</td>
+        <td>{{ testline.Cell_Info }}</td>
+        <td>{{ testline.App_IP_Addr }}</td>
+        <td>{{ testline.Active_Alarms }}</td>
+        <td>{{ testline.Setup_config }}</td>
+        <td>{{ testline.Remote_ip }}</td>
+        <td>{{ testline.L2_switch_ip }}</td>
+        <td>{{ testline.Port }}</td>
+        <td>{{ testline.Calls }}</td>
+        <td>{{ testline.UEs }}</td>
+        <td>{{ testline.IMSI }}</td>
+        <td>{{ testline.Issues_Investigations }}</td>
+        <td>{{ testline.Status_Comments }}</td>
+        <td>{{ testline.lastmodifiedon }}</td>
+        <td>{{ testline.lastmodifiedby }}</td>
+</tr>
+</tbody>
+{% endfor %}
+</table>
+</div>
+
+{% endblock %}
+</html>

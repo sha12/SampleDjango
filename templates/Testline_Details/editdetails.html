@@ -1,0 +1,26 @@
+{% extends "Testline_Details/base.html" %}
+{% load bootstrap_toolkit %},
+{% block title_block %}
+Edit Details
+{% endblock %}
+
+
+{% block body_block %}
+<style>
+#details{
+margin: 50px 0px 0px 200px
+
+
+}
+
+</style>
+
+<div id="details">
+<Strong>Details of SBTS {{ id }}</Strong><br>
+<form id="details_form" method="POST" action="">
+{% csrf_token %}
+{{ form.as_p }} 
+<button type="Submit">Save</button> 
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'Testline_Details/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+Register
+{% endblock %}
+
+{% block body_block %}
+<style>
+#register{
+margin:100px 0px 100px 300px;
+}
+
+</style>
+<div id="register">
+
+{% if registered %}
+ <strong>Registered !! Now you can edit the Testline details. Go to home page and select any SBTS ID to edit.</strong>
+{% else %}
+ <strong> Register here!</strong><br/><br>
+ <form id="user_form" method="post" action="{% url 'register' %}">
+ {% csrf_token %}
+ {{ user_form.as_p }}
+ <input type="submit" name="submit" value="Register"/>
+ </form>
+ </div>
+ {% endif %}
+ {% endblock %}
+  
+ 
+ 

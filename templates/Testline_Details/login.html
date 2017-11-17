@@ -1,0 +1,88 @@
+{% extends 'Testline_Details/base.html' %}
+
+
+{% block title_block %}
+Login
+{% endblock %}
+
+{% block body_block %}
+
+
+<style>
+#login{
+margin: 70px 0px 60px 1px;
+
+}
+
+@-moz-document url-prefix(){
+ #login{
+	margin:70px 0px 60px 1px;
+}
+}
+
+#login2{
+margin: 100px 0px 200px 0px;
+}
+
+</style>
+
+{% if not user.is_authenticated %}
+
+
+
+<link href="http://v4-alpha.getbootstrap.com/examples/signin/signin.css"
+rel="stylesheet">
+<div id="login">
+<form class="form-signin" role="form" method="post" action="">
+{% csrf_token %}
+<h2 class="form-signin-heading"> Log in</h2>
+<label for="inputUsername" class="sr-only">Username</label>
+<input type="text" name="username" id="id_username" class="form-control"
+placeholder="Username" required autofocus><br><br>
+<label for="inputPassword" class="sr-only">Password</label>
+<input type="password" name="password" id="id_password" class="form-control"
+placeholder="Password" required>
+<br><br>
+<button class="btn btn-lg btn-primary btn-block" type="submit"
+value="Submit" />Sign in</button>
+</form>
+</div>
+
+{% else %}
+<div id="login2">
+<p align="center"><strong>You are already logged in. Go to <a href="{% url 'home' %}">home</a> page and click on any sbtsid to edit. </strong></p>
+
+</div>  
+
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<form action="" method="post" >
+{% csrf_token %}
+Username: <input type="text" name="username" value="" size="25" /><br><br>
+Password : <input type="password" name="password" value="" size="25" />
+<br><br>
+<input type="submit" value="Login"/>
+
+</form>
+-->
+

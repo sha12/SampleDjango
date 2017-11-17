@@ -1,0 +1,95 @@
+{% load staticfiles %}
+<html>
+<head lang="en">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,
+initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>
+SRAN - {% block title_block %}
+Testlines
+{% endblock %}
+</title>
+<!-- Bootstrap core CSS 
+<link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css"
+rel="stylesheet">
+<!-- Custom styles for this template 
+<link href=
+"http://v4-alpha.getbootstrap.com/examples/dashboard/dashboard.css"
+rel="stylesheet"-->
+
+
+<a href="{% url 'home' %}" id="homelink">Home</a>
+<img src="{% static 'images/Nokia.jpg' %}" id="rightpic" alt="Nokia logo"/>
+
+  
+<style>
+    #rightpic {
+float:top;
+position: absolute;
+top:-10px;
+right:20px;
+height:120px;
+width:120px;
+
+}
+
+#homelink {
+
+font-size:30px;
+position:absolute;
+top:30px;
+left:20px;
+}
+
+
+
+#about {
+font-size:20px;
+text-align:center;
+margin: 0px 0px 0px 20px;
+}
+
+ #user{
+    position:absolute;
+    left:20px;
+    top:80px;
+    }
+    
+</style>
+<!--     
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+-->
+
+
+
+<div id="user">
+{% if user.is_authenticated %}
+{{ user.username }} is logged in
+{% endif %}
+</div>
+
+
+</head>
+<body>
+<div>
+{% block body_block %}
+{% endblock %}
+</div>
+
+<div>
+
+<a class="nav-item nav-link" href="{% url 'about' %}" id="about">About</a>
+</div>
+
+
+</body>
+
+
+</html>

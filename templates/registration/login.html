@@ -1,0 +1,24 @@
+{% extends "Testline_Details/base.html" %}
+{% block body_block %}
+
+<style>
+#login{
+margin: 50px 0px 0px 250px;
+}
+
+</style>
+
+<div id="login">
+<h1>Login</h1>
+<form method="post" action=".">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Log in" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+<p>
+<a href="{% url 'auth_password_reset' %}">Forgot Password?</a></p>
+Not a member?
+<a href="{% url 'registration_register' %}">Register</a><br>
+</div>
+{% endblock %}

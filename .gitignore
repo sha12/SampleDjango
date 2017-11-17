@@ -1,0 +1,10 @@
+.pyc
+.sqlite3
+.bkp
+.log
+.out
+.project
+.pydevproject
+Testline_Details/commands/
+Testline_Details/full_backup_jul_20_2017/
+Testline_Details/migrations/
